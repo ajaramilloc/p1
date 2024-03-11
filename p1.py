@@ -2,13 +2,13 @@ import sys
 sys.setrecursionlimit(100000000)
 
 def encontrar_i(T):
-    for i in range(len(T) - 1, -1, -1):
-        if T[i] < T[0] + 1:
+    for i in range(len(T)-1):
+        if T[i] < T[i+1]:
             return i
     return -1
 
 def encontrar_x(T, i):
-    for x in range(i - 1, -1, -1):
+    for x in range(i, -1, -1):
         if T[x] > 0:
             return x
     return -1
@@ -16,10 +16,11 @@ def encontrar_x(T, i):
 soluciones = []
 
 def F(T, i=None, movs=0):
-    if i is None:
-        i = encontrar_i(T)
+    i = encontrar_i(T)
 
     x = encontrar_x(T, i)
+
+    new_moves = 0
 
     if x < i - 1:
         new_moves = (i - 1)-x
@@ -48,4 +49,5 @@ def F(T, i=None, movs=0):
 # T = [cantidad de fichas en cada torre]
 # print(F(T))
 
-print(F([3,2]))
+print(F([20, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 9, 3, 5, 14, 19, 23, 32]))
+print("Fin")

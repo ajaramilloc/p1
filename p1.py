@@ -23,8 +23,8 @@ def F(T, i, movs):
     new_movs = 0
     print(soluciones)
 
-    if x < i-1:
-        new_movs = (i-1)-x
+    if x < i:
+        new_movs = (i)-x
 
     if i == -1:
         soluciones.append(movs)
@@ -57,5 +57,5 @@ def F(T, i, movs):
 # T = [cantidad de fichas en cada torre]
 # print(F(T))
 
-print(F([7, 0, 0, 0, 0, 0, 0, 1], 0, 0))
+print(F([4,3,2,2,4], 0, 0))
 print("Fin")
